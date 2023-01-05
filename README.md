@@ -20,5 +20,3 @@ Welcome to your teams repository! This will act as your team's hub for your game
   - The Project will be downloaded to your folder of choice, and everything should now be setup for work!
   - Changes will be added automatically, and can be commited by clicking `Commit to Main` in the bottom-left corner
   - Changes can be uploaded and downloaded by pressing the `Push to Repository` and `Fetch from Main` buttons respectively
-
-test
