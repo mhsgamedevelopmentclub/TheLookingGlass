@@ -1,0 +1,8 @@
+# Default Godot Exclusions:
+.import/
+
+*.translation
+
+export_presets.cfg
+
+.mono/
