@@ -7,23 +7,30 @@ export var max_speed := 120.0
 export var acceleration := 0.04
 export var deceleration := 0.04
 
-var velo = Vector2()
+var velo := Vector2()
+var is_jumping := false
 
 func _physics_process(delta):
-	if !is_on_floor():
-		velo.y += delta * GRAV_CONSTANT
-	
 	if Input.is_action_pressed("move_right"):
 		velo.x = lerp(velo.x, max_speed, acceleration)
+		$AnimatedSprite.flip_h = false
 	elif Input.is_action_pressed("move_left"):
 		velo.x = lerp(velo.x, -max_speed, acceleration)
+		$AnimatedSprite.flip_h = true
 	else:
 		velo.x = lerp(velo.x, 0, deceleration)
-	
+		
+	if not is_on_floor():
+		velo.y += delta * GRAV_CONSTANT
+
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		var start = OS.get_ticks_msec()
-		if Input.is_action_just_released("jump"):
-			var end = OS.get_ticks_msec() - start
-			velo.y = -(jump_height * end * 100)
+		velo.y = -jump_height
+		is_jumping = true
+	if Input.is_action_just_released("jump") and is_jumping:
+		velo.y = -25
+		is_jumping = false
+	
+	if velo.x != 0:
+		$AnimatedSprite.play()
 	
 	move_and_slide(velo, Vector2.UP)
