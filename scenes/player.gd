@@ -4,8 +4,8 @@ const GRAV_CONSTANT = 400
 
 export var jump_height := 200.0
 export var max_speed := 120.0
-export var acceleration := 0.04
-export var deceleration := 0.04
+export var acceleration := 0.06
+export var deceleration := 0.06
 
 var velo := Vector2()
 var is_jumping := false
@@ -13,10 +13,12 @@ var is_jumping := false
 func _physics_process(delta):
 	if Input.is_action_pressed("move_right"):
 		velo.x = lerp(velo.x, max_speed, acceleration)
-		$AnimatedSprite.flip_h = false
+		if is_on_floor():
+			$AnimatedSprite.flip_h = false
 	elif Input.is_action_pressed("move_left"):
 		velo.x = lerp(velo.x, -max_speed, acceleration)
-		$AnimatedSprite.flip_h = true
+		if is_on_floor():
+			$AnimatedSprite.flip_h = true
 	else:
 		velo.x = lerp(velo.x, 0, deceleration)
 		
