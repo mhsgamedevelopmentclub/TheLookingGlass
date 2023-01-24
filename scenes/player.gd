@@ -28,7 +28,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velo.y = -jump_height
 		is_jumping = true
-	if Input.is_action_just_released("jump") and is_jumping:
+	if Input.is_action_just_released("jump") and is_jumping and velo.y < -25:
 		velo.y = -25
 		is_jumping = false
 	
