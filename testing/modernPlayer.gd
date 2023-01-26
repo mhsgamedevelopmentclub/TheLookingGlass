@@ -4,12 +4,13 @@ const GRAV_CONSTANT := 400
 
 export var jump_height := 200.0
 export var max_speed := 120.0
-export var acceleration := 0.06
-export var deceleration := 0.06
+export var acceleration := 0.04
+export var deceleration := 0.08
 
 var velo = Vector2()
 var is_jumping := false
 var was_grounded := true
+var buffer_time := 1.0
 
 func _physics_process(delta):
 	if Input.is_action_pressed("move_right"):
@@ -23,8 +24,6 @@ func _physics_process(delta):
 	
 	if not is_on_floor():
 		velo.y += delta * GRAV_CONSTANT
-		if was_grounded:
-			$CoyoteTime.start()
 	
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
@@ -34,8 +33,8 @@ func _physics_process(delta):
 			velo.y = -jump_height
 			$CoyoteTime.stop()
 
-	if Input.is_action_just_released("jump") and is_jumping and velo.y < -25:
-		velo.y = -25
+	if Input.is_action_just_released("jump") and is_jumping and velo.y < -50:
+		velo.y = -50
 		is_jumping = false
 	
 	if velo.x != 0:
