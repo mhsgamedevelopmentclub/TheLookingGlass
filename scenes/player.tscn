@@ -1,24 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/sprites/player.png" type="Texture" id=1]
 [ext_resource path="res://scenes/player.gd" type="Script" id=2]
-[ext_resource path="res://assets/sprites/Player_Jump.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/Player_Headbob.png" type="Texture" id=3]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
 "loop": true,
-"name": "jump_press",
-"speed": 5.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "jump_release",
+"name": "RunRight",
 "speed": 5.0
 } ]
 
@@ -26,9 +16,6 @@ animations = [ {
 extents = Vector2( 4, 8 )
 
 [sub_resource type="Animation" id=3]
-resource_name = "Jump"
-
-[sub_resource type="Animation" id=4]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:frame")
@@ -43,8 +30,9 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "jump_press"
+[sub_resource type="Animation" id=4]
+resource_name = "RunRight"
+length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:frame")
 tracks/0/interp = 1
@@ -66,7 +54,7 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "jump_press"
+animation = "RunRight"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
@@ -78,6 +66,6 @@ limit_bottom = 0
 drag_margin_h_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Jump = SubResource( 3 )
-anims/RESET = SubResource( 4 )
-anims/jump_press = SubResource( 5 )
+autoplay = "RunRight"
+anims/RESET = SubResource( 3 )
+anims/RunRight = SubResource( 4 )

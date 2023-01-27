@@ -7,10 +7,13 @@ export var max_speed := 120.0
 export var acceleration := 0.06
 export var deceleration := 0.06
 
+onready var animationPlayer = $AnimationPlayer
+
 var velo := Vector2()
 var is_jumping := false
 
 func _physics_process(delta):
+	animationPlayer.play("RunRight")
 	if Input.is_action_pressed("move_right"):
 		velo.x = lerp(velo.x, max_speed, acceleration)
 		if is_on_floor():
