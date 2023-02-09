@@ -10,7 +10,6 @@ export var deceleration := 0.08
 var velo = Vector2()
 var is_jumping := false
 var was_grounded := true
-var buffer_time := 1.0
 
 func _physics_process(delta):
 	if Input.is_action_pressed("move_right"):
@@ -24,9 +23,13 @@ func _physics_process(delta):
 	
 	if not is_on_floor():
 		velo.y += delta * GRAV_CONSTANT
-	
+	elif not $BufferTime.is_stopped() and not is_jumping:
+		velo.y = -jump_height
+		is_jumping = true
+		
 	if Input.is_action_just_pressed("jump"):
-		if is_on_floor():
+		$BufferTime.start()
+		if is_on_floor() and not is_jumping:
 			velo.y = -jump_height
 			is_jumping = true
 		if not $CoyoteTime.is_stopped():

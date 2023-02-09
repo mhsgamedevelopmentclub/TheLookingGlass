@@ -31,6 +31,9 @@ shape = SubResource( 2 )
 wait_time = 0.4
 one_shot = true
 
+[node name="BufferTime" type="Timer" parent="."]
+one_shot = true
+
 [node name="GroundCheck" type="RayCast2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
