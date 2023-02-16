@@ -1,4 +1,6 @@
 extends KinematicBody2D
+signal retro_hit
+signal level_complete
 
 const GRAV_CONSTANT = 400
 
@@ -13,6 +15,10 @@ var velo := Vector2()
 var is_jumping := false
 
 func _physics_process(delta):
+	# Check for scene transition (TEST)
+	if Input.is_action_just_pressed("(test)_change_scene"):
+		emit_signal("retro_hit")
+		
 	animationPlayer.play("RunRight")
 	if Input.is_action_pressed("move_right"):
 		velo.x = lerp(velo.x, max_speed, acceleration)

@@ -1,4 +1,5 @@
 extends KinematicBody2D
+signal modern_hit
 
 const GRAV_CONSTANT := 400
 
@@ -12,6 +13,10 @@ var is_jumping := false
 var was_grounded := true
 
 func _physics_process(delta):
+	# Check for scene transition (TEST):
+	if Input.is_action_just_pressed("(test)_change_scene"):
+		emit_signal("modern_hit")
+	
 	if Input.is_action_pressed("move_right"):
 		velo.x = lerp(velo.x, max_speed, acceleration)
 		$AnimatedSprite.flip_h = false
@@ -23,21 +28,18 @@ func _physics_process(delta):
 	
 	if not is_on_floor():
 		velo.y += delta * GRAV_CONSTANT
-	elif not $BufferTime.is_stopped() and not is_jumping:
-		velo.y = -jump_height
-		is_jumping = true
 		
 	if Input.is_action_just_pressed("jump"):
-		$BufferTime.start()
 		if is_on_floor() and not is_jumping:
 			velo.y = -jump_height
 			is_jumping = true
-		if not $CoyoteTime.is_stopped():
+		if not $CoyoteTime.is_stopped() and not is_jumping:
 			velo.y = -jump_height
 			$CoyoteTime.stop()
 
-	if Input.is_action_just_released("jump") and is_jumping and velo.y < -50:
-		velo.y = -50
+	if Input.is_action_just_released("jump") and is_jumping:
+		if velo.y < -50:
+			velo.y = -50
 		is_jumping = false
 	
 	if velo.x != 0:

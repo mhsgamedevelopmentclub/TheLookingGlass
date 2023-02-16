@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/retro/retroPlayer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://scenes/retro/retroTest.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 319.5, 18 )
+
+[node name="LevelManager" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 320, 186 )
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2( 320, 259 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Ground"]
+scale = Vector2( 10, 0.6 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2( 0.5, 0 )
+shape = SubResource( 1 )
+
+[connection signal="retro_hit" from="Player" to="." method="_on_Player_retro_hit"]
