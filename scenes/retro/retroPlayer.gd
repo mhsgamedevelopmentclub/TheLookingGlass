@@ -45,3 +45,6 @@ func _physics_process(delta):
 		$AnimatedSprite.play()
 	
 	move_and_slide(velo, Vector2.UP)
+	
+	# Collision detection
+	
