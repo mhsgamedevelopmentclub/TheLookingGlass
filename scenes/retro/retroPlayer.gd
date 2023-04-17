@@ -13,6 +13,7 @@ onready var animationPlayer = $AnimationPlayer
 
 var velo := Vector2()
 var is_jumping := false
+var jump_count = 0
 
 func _physics_process(delta):
 	# Check for scene transition (TEST)
@@ -34,12 +35,17 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velo.y += delta * GRAV_CONSTANT
 
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and jump_count < 1:
 		velo.y = -jump_height
 		is_jumping = true
+		jump_count += 1
+		# double jump feature
 	if Input.is_action_just_released("jump") and is_jumping and velo.y < -25:
 		velo.y = -25
 		is_jumping = false
+
+	if is_on_floor():
+		jump_count = 0
 	
 	if velo.x != 0:
 		$AnimatedSprite.play()
