@@ -35,15 +35,19 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velo.y += delta * GRAV_CONSTANT
 
+	# double jump feature
 	if Input.is_action_just_pressed("jump") and jump_count < 1:
 		velo.y = -jump_height
 		is_jumping = true
 		jump_count += 1
-		# double jump feature
-	if Input.is_action_just_released("jump") and is_jumping and velo.y < -25:
+
+	if Input.is_action_just_released("jump") and is_jumping and jump_count == 1 and velo.y < -25:
 		velo.y = -25
 		is_jumping = false
-
+	
+	if is_on_ceiling() and is_jumping and velo.y < -25:
+		velo.y = -25
+	
 	if is_on_floor():
 		jump_count = 0
 	
@@ -51,6 +55,9 @@ func _physics_process(delta):
 		$AnimatedSprite.play()
 	
 	move_and_slide(velo, Vector2.UP)
+	
+	if is_on_floor():
+		velo.y = 0
 	
 	# Collision detection
 	
