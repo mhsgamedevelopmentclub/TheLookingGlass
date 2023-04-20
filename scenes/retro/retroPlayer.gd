@@ -13,7 +13,7 @@ onready var animationPlayer = $AnimationPlayer
 
 var velo := Vector2()
 var is_jumping := false
-var jump_count = 0
+var jump_count := 0
 
 func _physics_process(delta):
 	# Check for scene transition (TEST)
@@ -60,4 +60,6 @@ func _physics_process(delta):
 		velo.y = 0
 	
 	# Collision detection
-	
+	if velo.y > 400:
+		# set player position to last checkpoint
+		emit_signal("retro_hit")
