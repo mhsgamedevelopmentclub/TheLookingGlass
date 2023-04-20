@@ -1,19 +1,21 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/modern/modernPlayer.gd" type="Script" id=1]
-[ext_resource path="res://assets/sprites/player.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/Character_still.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/Character_run_1.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/Character_run_2.png" type="Texture" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
-"name": "default",
+"name": "RunRight",
 "speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 5.0
-height = 6.0
+radius = 4.5
+height = 7.0
 
 [node name="ModernPlayer" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -22,9 +24,13 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -0.611096, -0.343756 )
+scale = Vector2( 0.0141782, 0.0141782 )
 frames = SubResource( 1 )
+animation = "RunRight"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.6, 0 )
 shape = SubResource( 2 )
 
 [node name="CoyoteTime" type="Timer" parent="."]
