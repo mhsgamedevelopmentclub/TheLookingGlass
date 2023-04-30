@@ -47,6 +47,7 @@ func _physics_process(delta):
 	
 	if is_on_ceiling() and is_jumping and velo.y < -25:
 		velo.y = -25
+		is_jumping = false
 	
 	if is_on_floor():
 		jump_count = 0

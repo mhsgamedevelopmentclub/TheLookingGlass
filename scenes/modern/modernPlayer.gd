@@ -57,3 +57,10 @@ func _physics_process(delta):
 	
 	if is_on_floor():
 		velo.y = 0
+		
+	# Collision detection
+	if velo.y < 400:
+		# set player position to last checkpoint
+		emit_signal("modern_hit")
+	
+	
