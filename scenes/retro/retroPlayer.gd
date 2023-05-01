@@ -1,5 +1,6 @@
 extends KinematicBody2D
 signal retro_hit
+signal checkpoint_reached
 signal level_complete
 
 const GRAV_CONSTANT = 400
@@ -60,7 +61,17 @@ func _physics_process(delta):
 	if is_on_floor():
 		velo.y = 0
 	
-	# Collision detection
+	# fall detection
 	if velo.y > 400:
 		# set player position to last checkpoint
 		emit_signal("retro_hit")
+	
+	# Collision detection
+	for collision in get_slide_count():
+		var object := get_slide_collision(collision).collider
+		if object.is_in_group("enemy"):
+			emit_signal("retro_hit")
+		elif object.is_in_group("checkpoint"):
+			emit_signal("checkpoint_reached")
+		elif object.is_in_group("flag"):
+			emit_signal("level_complete")

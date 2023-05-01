@@ -2,3 +2,4 @@
 extends Node
 var pos := Vector2()
 var lives := 3
+var last_checkpoint := Vector2()
