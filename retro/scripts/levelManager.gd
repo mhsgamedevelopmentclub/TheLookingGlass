@@ -7,7 +7,7 @@ extends Node2D
 """
 
 func swap_world():
-	get_tree().change_scene("res://scenes/retro/retroTestAlpha.tscn")
+	get_tree().change_scene("res://modern/scenes/ModernAlpha.tscn")
 
 func level_complete():
 	pass

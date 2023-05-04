@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/Ground1_grass.png" type="Texture" id=1]
 [ext_resource path="res://assets/parallax screens/Parallax 1.png" type="Texture" id=2]
-[ext_resource path="res://scenes/modern/modernPlayer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://modern/scenes/Player.tscn" type="PackedScene" id=3]
 
 [node name="LevelManager" type="Node2D"]
 position = Vector2( 2504, 1048 )

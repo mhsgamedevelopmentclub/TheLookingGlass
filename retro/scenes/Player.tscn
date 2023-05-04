@@ -1,8 +1,9 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://scenes/retro/retroPlayer.gd" type="Script" id=1]
+[ext_resource path="res://retro/scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/Player_Headbob.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprites/player.png" type="Texture" id=3]
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {

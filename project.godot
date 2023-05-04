@@ -15,7 +15,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-PlayerInfo="*res://playerInfo.gd"
+PlayerInfo="*res://global/playerInfo.gd"
 
 [display]
 
