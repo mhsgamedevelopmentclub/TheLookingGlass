@@ -4,7 +4,6 @@
 [ext_resource path="res://assets/sprites/Player_Headbob.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprites/player.png" type="Texture" id=3]
 
-
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 2 ) ],
