@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-487276ed1e3a0c39cad0279d744ee560.stex"
+path="res://.import/New_Ground_Block_City_Middle.png-8a8250d6d2fe49fab23ee566f6287df5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon.png"
-dest_files=[ "res://.import/icon.png-487276ed1e3a0c39cad0279d744ee560.stex" ]
+source_file="res://assets/retro/New_Ground_Block_City_Middle.png"
+dest_files=[ "res://.import/New_Ground_Block_City_Middle.png-8a8250d6d2fe49fab23ee566f6287df5.stex" ]
 
 [params]
 
