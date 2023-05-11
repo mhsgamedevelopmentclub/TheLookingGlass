@@ -21,7 +21,6 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("(test)_change_scene"):
 		emit_signal("retro_hit")
 		
-	animationPlayer.play("RunRight")
 	if Input.is_action_pressed("move_right"):
 		velo.x = lerp(velo.x, max_speed, acceleration)
 		if is_on_floor():
