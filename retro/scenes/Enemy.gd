@@ -15,16 +15,6 @@ func _physics_process(delta):
 	motion = move_and_slide(motion)
 
 
-
-
-
-
-
-
-
-
-
-
 #this code can be used later to make the enemy follow the player possibly. Needs a player node access to work
 
 #export var speed = 100
