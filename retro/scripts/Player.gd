@@ -10,8 +10,6 @@ export var max_speed := 120.0
 export var acceleration := 0.06
 export var deceleration := 0.06
 
-onready var animationPlayer = $AnimationPlayer
-
 var velo := Vector2()
 var is_jumping := false
 var jump_count := 0

@@ -32,4 +32,6 @@ shape = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+zoom = Vector2( 2, 2 )
+limit_top = 0
 drag_margin_h_enabled = true
