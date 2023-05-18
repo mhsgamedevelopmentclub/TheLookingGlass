@@ -10,7 +10,8 @@ config_version=4
 
 [application]
 
-config/name="Group1"
+config/name="Looking Glass"
+config/description="2d mario-inspired platformer game that allows the player to switch between 2 worlds - modern and retro - each with different mechanics upon death"
 config/icon="res://icon.png"
 
 [autoload]
