@@ -3,7 +3,7 @@
 [ext_resource path="res://retro/scripts/Sign.gd" type="Script" id=1]
 
 [node name="Sign" type="Area2D"]
-scale = Vector2( 1.05, 1.05 )
+scale = Vector2( 0.05, 0.05 )
 script = ExtResource( 1 )
 
 [node name="Text" type="Label" parent="."]
