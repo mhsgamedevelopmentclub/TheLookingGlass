@@ -1,37 +1,35 @@
 extends KinematicBody2D
 signal modern_hit
 signal checkpoint_reached
-signal level_complete
 
 const GRAV_CONSTANT := 400
+
+onready var player_info := get_tree().root.get_node("/root/PlayerInfo")
+onready var anim_sprite := $AnimatedSprite
 
 export var jump_height := 200.0
 export var max_speed := 120.0
 export var acceleration := 0.04
 export var deceleration := 0.08
 
-var velo = Vector2()
+var velo := Vector2()
 var is_jumping := false
 var was_grounded := true
 var jump_count := 0
 
 func _physics_process(delta):
-	# Check for scene transition (TEST):
-	if Input.is_action_just_pressed("(test)_change_scene"):
-		emit_signal("modern_hit")
-	
 	if Input.is_action_pressed("move_right"):
 		velo.x = lerp(velo.x, max_speed, acceleration)
-		$AnimatedSprite.flip_h = false
+		anim_sprite.flip_h = false
 	elif Input.is_action_pressed("move_left"):
 		velo.x = lerp(velo.x, -max_speed, acceleration)
-		$AnimatedSprite.flip_h = true
+		anim_sprite.flip_h = true
 	else:
 		velo.x = lerp(velo.x, 0, deceleration)
-	
+
 	if not is_on_floor():
 		velo.y += delta * GRAV_CONSTANT
-		
+
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor() and not is_jumping and jump_count < 1:
 			velo.y = -jump_height
@@ -50,10 +48,11 @@ func _physics_process(delta):
 		velo.y = -50
 	
 	if velo.x != 0:
-		$AnimatedSprite.play()
+		anim_sprite.play()
 		
 	was_grounded = is_on_floor()
 	move_and_slide(velo, Vector2.UP)
+	player_info.pos = position
 	if was_grounded and not is_on_floor() and not is_jumping:
 		$CoyoteTime.start()
 	
@@ -62,7 +61,7 @@ func _physics_process(delta):
 		
 	# Fall detection
 	if velo.y < 400:
-		# set player position to last checkpoint
+		player_info.pos = player_info.last_checkpoint
 		emit_signal("modern_hit")
 		
 	# Collision detection
@@ -72,6 +71,3 @@ func _physics_process(delta):
 			emit_signal("modern_hit")
 		elif object.is_in_group("checkpoint"):
 			emit_signal("checkpoint_reached")
-		elif object.is_in_group("flag"):
-			emit_signal("level_complete")
-	
