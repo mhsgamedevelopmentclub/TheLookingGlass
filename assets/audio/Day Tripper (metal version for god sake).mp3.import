@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Day Tripper (metal version for god sake).mp3-67afc7279341d0942e872fc7ca9a6ac8.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Day Tripper (metal version for god sake).mp3"
+dest_files=[ "res://.import/Day Tripper (metal version for god sake).mp3-67afc7279341d0942e872fc7ca9a6ac8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Day Tripper (metal version).mp3-18c0d80fdbe0e06e4c2d733b8cacdd42.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Day Tripper (metal version).mp3"
+dest_files=[ "res://.import/Day Tripper (metal version).mp3-18c0d80fdbe0e06e4c2d733b8cacdd42.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

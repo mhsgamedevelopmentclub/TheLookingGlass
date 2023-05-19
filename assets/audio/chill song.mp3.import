@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/chill song.mp3-b6d9eea7984f89b3bd954526cb0f3085.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/chill song.mp3"
+dest_files=[ "res://.import/chill song.mp3-b6d9eea7984f89b3bd954526cb0f3085.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

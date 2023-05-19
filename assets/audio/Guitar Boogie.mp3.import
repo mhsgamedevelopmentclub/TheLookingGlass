@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Guitar Boogie.mp3-29b7536be3eb057c1f44630d314a7ac2.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Guitar Boogie.mp3"
+dest_files=[ "res://.import/Guitar Boogie.mp3-29b7536be3eb057c1f44630d314a7ac2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
