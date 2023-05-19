@@ -18,7 +18,7 @@ region = Rect2( 3840, 0, 1920, 1920 )
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 4 ) ],
-"loop": false,
+"loop": true,
 "name": "Jump",
 "speed": 5.0
 }, {

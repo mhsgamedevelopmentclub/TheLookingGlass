@@ -20,7 +20,8 @@ PlayerInfo="*res://global/playerInfo.gd"
 
 [display]
 
-window/size/width=4500
+window/size/width=50000
+window/size/height=2000
 window/size/test_width=1024
 window/size/test_height=600
 
