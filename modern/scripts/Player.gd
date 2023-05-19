@@ -1,9 +1,11 @@
 extends KinematicBody2D
 signal modern_hit
 signal checkpoint_reached
-signal level_complete
 
 const GRAV_CONSTANT := 400
+
+onready var player_info := get_tree().root.get_node("/root/PlayerInfo")
+onready var anim_player := $AnimatedSprite
 
 export var jump_height := 200.0
 export var max_speed := 120.0
@@ -22,10 +24,10 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("move_right"):
 		velo.x = lerp(velo.x, max_speed, acceleration)
-		$AnimatedSprite.flip_h = false
+		anim_player.flip_h = false
 	elif Input.is_action_pressed("move_left"):
 		velo.x = lerp(velo.x, -max_speed, acceleration)
-		$AnimatedSprite.flip_h = true
+		anim_player.flip_h = true
 	else:
 		velo.x = lerp(velo.x, 0, deceleration)
 	
@@ -50,7 +52,7 @@ func _physics_process(delta):
 		velo.y = -50
 	
 	if velo.x != 0:
-		$AnimatedSprite.play()
+		anim_player.play()
 		
 	was_grounded = is_on_floor()
 	move_and_slide(velo, Vector2.UP)
@@ -62,7 +64,7 @@ func _physics_process(delta):
 		
 	# Fall detection
 	if velo.y < 400:
-		# set player position to last checkpoint
+		player_info.pos = player_info.last_checkpoint
 		emit_signal("modern_hit")
 		
 	# Collision detection
@@ -72,6 +74,4 @@ func _physics_process(delta):
 			emit_signal("modern_hit")
 		elif object.is_in_group("checkpoint"):
 			emit_signal("checkpoint_reached")
-		elif object.is_in_group("flag"):
-			emit_signal("level_complete")
 	
