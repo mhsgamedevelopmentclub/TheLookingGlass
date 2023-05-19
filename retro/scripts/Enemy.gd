@@ -4,7 +4,7 @@ var speed = 120
 var motion = Vector2()
 var gravity = 20
 
-var direction = 1 #  1 is equal to right and -1 is equal to left
+var direction = -1 #  1 is equal to right and -1 is equal to left
 
 func _physics_process(delta):
 	motion.y += gravity
