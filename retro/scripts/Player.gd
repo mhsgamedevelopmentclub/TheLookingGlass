@@ -3,7 +3,7 @@ signal retro_hit
 signal checkpoint_reached
 signal level_complete
 
-const GRAV_CONSTANT = 400
+const GRAV_CONSTANT = 1000
 
 export var jump_height := 200.0
 export var max_speed := 120.0
