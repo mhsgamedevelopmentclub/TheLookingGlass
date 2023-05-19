@@ -12,7 +12,6 @@ config_version=4
 
 config/name="Looking Glass"
 config/description="2d mario-inspired platformer game that allows the player to switch between 2 worlds - modern and retro - each with different mechanics upon death"
-run/main_scene="res://retro/scenes/RetroAlphaLevel1.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -21,8 +20,6 @@ PlayerInfo="*res://global/playerInfo.gd"
 
 [display]
 
-window/size/width=50000
-window/size/height=2000
 window/size/test_width=1024
 window/size/test_height=600
 
