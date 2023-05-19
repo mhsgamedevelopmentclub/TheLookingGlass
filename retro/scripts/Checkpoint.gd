@@ -1,12 +1,10 @@
 extends Area2D
 
-onready var player_info := get_tree().root.get_node("/root/PlayerInfo")
-onready var anim_sprite := $AnimatedSprite
+onready var player_info
 
 func _ready():
-	anim_sprite.frame = 0
+	player_info = get_tree().root.get_node("/root/PlayerInfo")
 
 func _on_Checkpoint_body_entered(body):
-	anim_sprite.frame = 1
 	if body.name == "Player":
 		player_info.last_checkpoint = position

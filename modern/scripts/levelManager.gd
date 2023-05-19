@@ -1,8 +1,5 @@
 extends Node2D
 
-onready var player_info := get_tree().root.get_node("/root/PlayerInfo")
-onready var transition := $TransitionLayer
-
 """
 	Main purpose of scene is to recieve signals
 	from other game objects for level changing
@@ -10,7 +7,7 @@ onready var transition := $TransitionLayer
 """
 
 func swap_world():
-	transition.transition_to("res://retro/scenes/RetroAlpha.tscn")
+	get_tree().change_scene("res://retro/scenes/RetroAlpha.tscn")
 
-func update_checkpoint():
-	player_info.last_checkpoint = player_info.pos
+func level_complete():
+	pass
