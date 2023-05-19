@@ -2,15 +2,15 @@ extends KinematicBody2D
 signal retro_hit
 signal checkpoint_reached
 
-const GRAV_CONSTANT = 1000
+const GRAV_CONSTANT = 2000
 
 onready var player_info := get_tree().root.get_node("/root/PlayerInfo")
 onready var anim_player := $AnimatedSprite
 
-export var jump_height := 200.0
-export var max_speed := 120.0
-export var acceleration := 0.06
-export var deceleration := 0.06
+export var jump_height := 960.0
+export var max_speed := 480.0
+export var acceleration := 0.08
+export var deceleration := 0.08
 
 var velo := Vector2()
 var is_jumping := false
