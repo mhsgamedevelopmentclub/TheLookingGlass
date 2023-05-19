@@ -14,11 +14,7 @@ var velo := Vector2()
 var is_jumping := false
 var jump_count := 0
 
-func _physics_process(delta):
-	# Check for scene transition (TEST)
-	if Input.is_action_just_pressed("(test)_change_scene"):
-		emit_signal("retro_hit")
-		
+func _physics_process(delta):	
 	if Input.is_action_pressed("move_right"):
 		velo.x = lerp(velo.x, max_speed, acceleration)
 		if is_on_floor():
@@ -59,7 +55,7 @@ func _physics_process(delta):
 		velo.y = 0
 	
 	# fall detection
-	if velo.y > 400:
+	if position.y > 400:
 		# set player position to last checkpoint
 		emit_signal("retro_hit")
 	
