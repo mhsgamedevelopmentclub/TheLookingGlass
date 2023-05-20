@@ -1,7 +1,6 @@
 extends Node2D
 
-onready var player_info := get_tree().root.get_node("/root/PlayerInfo")
-onready var transition_layer := $TransitionLayer
+onready var transition_layer := $'CanvasLayer/TransitionLayer'
 
 """
 	Main purpose of scene is to recieve signals
@@ -10,7 +9,4 @@ onready var transition_layer := $TransitionLayer
 """
 
 func swap_world():
-	transition_layer.transition_to("res://modern/scenes/ModernAlpha.tscn")
-
-func update_checkpoint():
-	pass
+	transition_layer.transition_to("res://modern/scenes/Level1.tscn")

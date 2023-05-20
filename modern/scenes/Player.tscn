@@ -1,22 +1,35 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://modern/scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/modern/sprites/Character_still.png" type="Texture" id=2]
+[ext_resource path="res://assets/modern/sprites/Character_run_2.png" type="Texture" id=3]
+[ext_resource path="res://assets/modern/sprites/Character_jump.png" type="Texture" id=4]
+[ext_resource path="res://assets/modern/sprites/Character_run_1.png" type="Texture" id=5]
+[ext_resource path="res://assets/modern/parallax screens/Parallax 1.png" type="Texture" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "RunRight",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "default",
+"name": "Still",
 "speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 10.0001
-height = 33.9999
+radius = 24.0
+height = 60.0
 
 [node name="ModernPlayer" type="KinematicBody2D"]
-rotation = -6.28319
 collision_mask = 12
 script = ExtResource( 1 )
 __meta__ = {
@@ -24,16 +37,24 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-scale = Vector2( 0.05, 0.05 )
+scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 1 )
+animation = "Still"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 4, 0 )
 shape = SubResource( 2 )
 
-[node name="CoyoteTime" type="Timer" parent="."]
-wait_time = 0.4
-one_shot = true
-
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+zoom = Vector2( 2, 2 )
+limit_left = -8
+limit_right = 13000
+limit_bottom = 7500
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground"]
+scale = Vector2( 0.53299, 0.557112 )
+texture = ExtResource( 6 )
+centered = false

@@ -1,8 +1,10 @@
 extends KinematicBody2D
 
-var speed = 120
+onready var sprite := $Sprite
+
+export var speed := 640
 var motion = Vector2()
-var gravity = 20
+var gravity = 2000
 
 var direction = -1 #  1 is equal to right and -1 is equal to left
 
