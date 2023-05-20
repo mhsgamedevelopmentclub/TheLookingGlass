@@ -18,9 +18,9 @@ region = Rect2( 3840, 0, 1920, 1920 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": false,
-"name": "Jump",
+"name": "Still",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
@@ -28,9 +28,9 @@ animations = [ {
 "name": "RunRight",
 "speed": 7.5
 }, {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": false,
-"name": "Still",
+"name": "Jump",
 "speed": 5.0
 } ]
 
@@ -64,6 +64,6 @@ drag_margin_h_enabled = true
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground"]
-scale = Vector2( 0.535288, 0.551199 )
+scale = Vector2( 1.08533, 1.11759 )
 texture = ExtResource( 5 )
 centered = false

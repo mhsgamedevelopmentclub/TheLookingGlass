@@ -9,9 +9,9 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "Jump",
+"name": "Still",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ), ExtResource( 3 ) ],
@@ -19,9 +19,9 @@ animations = [ {
 "name": "RunRight",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "Still",
+"name": "Jump",
 "speed": 5.0
 } ]
 
@@ -55,6 +55,6 @@ limit_bottom = 7500
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground"]
-scale = Vector2( 0.53299, 0.557112 )
+scale = Vector2( 1.05769, 1.10556 )
 texture = ExtResource( 6 )
 centered = false
